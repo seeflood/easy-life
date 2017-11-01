@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="haha">
+    <div style="clear:both">
+        <span @click="generate">
+        <input type="button" value="生成sql代码"/>
+            </span>
+        <input type="button" @click="copyCode()" value="点击复制代码"/>
+    </div>
+    <div style="float:left">
+        <!-- 表名<input type="text" v-model="tableName"/><br> -->
+        <textarea id="importConfig" cols="50%" rows="70%">
+
+        </textarea>
+    </div>
+    <div  v-show="showFlag">
+        <pre id="export" style="float:left"></pre>
+    </div>
+</div>
+<script src="jQuery.v1.11.1.min.js"></script>
+<script src="vue.js"></script>
+<script src="sqlTemplate.js"></script>
+</body>
+</html>
