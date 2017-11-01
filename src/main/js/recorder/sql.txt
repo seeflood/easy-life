@@ -1,0 +1,16 @@
+<template v-for="table in tables"><template v-if="table.name">
+-- 案件信息表
+-- --------------------
+DROP TABLE IF EXISTS {{table.name}};
+CREATE TABLE {{table.name}} (
+    <template v-for="item in table.columns">
+    {{item.name}}	    {{item.type}}        <template v-if="item.isPrimary">NOT </template>NULL,    -- {{item.chin}}
+	</template>
+	    <template v-for="item in table.columns"><template v-if="item.isPrimary">PRIMARY KEY ({{item.name}})</template></template>
+
+);
+-- 创建索引（目前没有找到如果判断删除的sql，如果索引报错，先手动删除后在创建，删除sql：DROP INDEX I_N_CBR_T_AJ）
+    <template v-for="item in table.columns"><template v-if="item.isIndex">CREATE  INDEX I_{{item.name}}_{{table.name}} ON {{table.name}}({{item.name}});
+
+</template></template>
+</template></template>

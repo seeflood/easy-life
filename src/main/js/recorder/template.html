@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="haha">
+    <div style="clear:both">
+        <span @click="generate">
+        <input type="button" value="生成埋点代码"/>
+            </span>
+        <input type="button" @click="copyCode()" value="点击复制代码"/>
+    </div>
+    <div style="float:left">
+        <textarea id="importConfig" cols="50%" rows="50%">
+接口名称 获取电子卷宗浏览地址
+请求Url  dzjz/getBrowseUrl
+
+ah	案号
+ajbh	案件编号
+fyId	法院ID
+ywlx	业务类型
+        </textarea>
+    </div>
+    <div  v-show="showFlag">
+    <pre id="export" style="float:left">
+    require(['userBehavior'], function () {
+    var urlMap = {};
+    //加占位符是方便java做代码生成器
+    <template v-for="item in urlMap">
+        urlMap["{{item.url}}"] = "{{item.what}}";
+    </template>
+
+    //Hijack $.ajax
+    var rawAjax = $.ajax;
+    Object.defineProperty($, "ajax", {
+    value: function (args) {
+    if (args && !args.noRecord) {
+    log(args.url, args.data);
+    }
+    return rawAjax(args);
+    }
+    });
+
+    function log(url, data) {
+    for (key in urlMap) {
+    if (url.indexOf(key) < 0) {
+    continue;
+    }
+    //TODO desc目前字段名非中文，和过去不一致
+    //且记录所有字段，没过滤
+    //可以做个代码生成器，从rap上把要的字段粘进文件，java生成js代码
+    // recordUserBehavior(urlMap[key], tanslater.toChineseString(data));
+    recordUserBehavior(urlMap[key], data);
+    break;
+    }
+    }
+
+    var tanslater = {
+    //加占位符是方便java做代码生成器
+    _chinFieldMap:
+    {{chinFields}},
+    toChineseString: function (obj) {
+    var result="";
+    for(key in obj){
+    var chin=_chinFieldMap[key];
+    if(!chin){
+    continue;
+    }
+    var item=chin+":"+obj[key]+",";
+    result+=item;
+    }
+    result=result.substring(0,result.length-1);
+    return result;
+    }
+    }
+    });
+    </pre>
+    </div>
+</div>
+<script src="jQuery.v1.11.1.min.js"></script>
+<script src="vue.js"></script>
+<script src="template.js"></script>
+</body>
+</html>
