@@ -65,7 +65,7 @@ ActivateAndOpen(t,p)
 
 
 ^[::
-send {End}{End}{{}{Enter}
+send {End}{End}{End}{{}{Enter}
 return
 
 !Enter::
@@ -85,5 +85,4 @@ return
 send !{Down}{Up}{Down}{Tab}
 return
 
-!j::¡ú
 
