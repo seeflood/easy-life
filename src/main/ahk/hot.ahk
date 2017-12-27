@@ -32,7 +32,7 @@ ActivateAndOpen(t,p)
 
 ;-----------------------------10.9 update---------------------------
 ^F12::ActivateAndOpen("Fiddler Web Debugger","C:\Users\huayu\AppData\Local\Programs\Fiddler\Fiddler.exe")
-
+!F12::ActivateAndOpen("*ÒÔÌ«Íø","C:\Program Files\Wireshark\Wireshark.exe")
 
 ;-----------------------------9.17 update---------------------------
 ; Notes
