@@ -38,6 +38,7 @@ ActivateAndOpen(t,p)
 ; Notes
 #a::Activate("- 印象笔记")
 #+a::Activate("有道云笔记")
+!a::Activate("xmind")
 ;其实思维导图可以加在这
 
 ; Editors
