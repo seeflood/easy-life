@@ -31,6 +31,8 @@ ActivateAndOpen(t,p)
 }
 
 ;-----------------------------10.9 update---------------------------
+; For debugger
+#F12::ActivateAndOpen("HTTP Debugger Pro","C:\Program Files (x86)\HTTPDebuggerPro\HTTPDebuggerUI.exe")
 ^F12::ActivateAndOpen("Fiddler Web Debugger","C:\Users\huayu\AppData\Local\Programs\Fiddler\Fiddler.exe")
 !F12::ActivateAndOpen("以太网","C:\Program Files\Wireshark\Wireshark.exe")
 
@@ -62,6 +64,10 @@ ActivateAndOpen(t,p)
 ; DASUNG配置，方便切焦点看标题栏（如eclipse看文件路径
 #ESC::Activate("Paperlike Pro")
 
+;方便chrome devTools调试
+!ESC::
+send {ESC}{ESC}{ESC}
+return
 ;-----------------------------9.17 update---------------------------
 
 
