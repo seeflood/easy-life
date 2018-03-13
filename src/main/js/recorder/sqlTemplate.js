@@ -1,6 +1,6 @@
 $(function(){
     $("#importConfig").load("table.txt");
-    $("#export").load('sql.txt',function(){
+    $("#export").load('coder.txt',function(){
         var _vm = new Vue({
             el: "#haha",
             data: {
