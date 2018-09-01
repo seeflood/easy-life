@@ -31,10 +31,10 @@ ActivateAndOpen(t,p)
 }
 
 ;-----------------------------test update---------------------------
-^2::Activate("远程桌面连接")
-^3::
-send !{CtrlBreak}
-return
+;^2::Activate("远程桌面连接")
+;^3::
+;send !{CtrlBreak}
+;return
 ;-----------------------------10.9 update---------------------------
 ; For debugger
 #F12::ActivateAndOpen("HTTP Debugger Pro","C:\Program Files (x86)\HTTPDebuggerPro\HTTPDebuggerUI.exe")
@@ -43,15 +43,15 @@ return
 #!F12::ActivateAndOpen("Apache JMeter","D:\工具包\jmeter-3.0\bin\jmeter.bat")
 ;-----------------------------9.17 update---------------------------
 ; Notes
-#a::Activate("- 印象笔记")
+#a::Activate("- Evernote")
 #+a::Activate("有道云笔记")
 !a::Activate("xmind")
 
 
 ; Editors
-!`::Activate("Microsoft Word")
+!`::Activate("- Word")
 ^`::Activate("Microsoft Excel")
-#`::ActivateAndOpen("Notepad++","C:\Program Files (x86)\Notepad++\notepad++.exe")
+#`::ActivateAndOpen("Notepad++","C:\Program Files\Notepad++\notepad++.exe")
 
 ^#`::ActivateAndOpen("Beyond Compare","C:\Program Files\Beyond Compare 4\BCompare.exe")
 #!`::Activate("Visio Professional")
@@ -66,7 +66,7 @@ return
 
 ; Browsers
 ; IE.Better than just win+num,which would have you to choose tab
-!1::ActivateAndOpen("Internet Explorer","C:\Program Files (x86)\Internet Explorer\iexplore.exe")
+!1::ActivateAndOpen("Edge","C:\windows\explorer.exe shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge")
 
 ; DASUNG配置，方便切焦点看标题栏（如eclipse看文件路径
 #ESC::Activate("Paperlike Pro")
