@@ -7,7 +7,7 @@ public class App {
 
 	public static void main(String[] args) {
 		Printer printer=new Printer("Laser");
-		String path="F:\\xiaoyuAgain\\FY_PRD_zhinengzhushou\\60_source\\ThunisoftSpirit\\ThunisoftSpirit\\note.txt";
+		String path="F:\\xxx\\note.txt";
 		File f=new File(path);
 		try {
 			printer.add(f);
